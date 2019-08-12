@@ -10,6 +10,7 @@ In whatsfordinner, users will be able to:
   * Input ingredients into a form
   * Press submit button and have app find recipes matching input ingredients
   * Click on resulting recipes and be redirected to locations those recipes exist
+  * Click on listed ingredients not originally inputed to add them to their collection and thereby update overall results
   
 In addition, this project will include:
   * A modal explaining the functionality of the app
@@ -17,3 +18,5 @@ In addition, this project will include:
 ## Wireframes
 
 The app will consist of a single screen consisting of the main area that will show the resulting dendrogram, as well as a side bar featuring a form where the users can input up to 5 ingredients. In addition, the sidebar will contain a submit button to begin the recipe search process, an about button that will render a modal with information about the app, and links to my Github and LinkedIn profiles.
+
+
