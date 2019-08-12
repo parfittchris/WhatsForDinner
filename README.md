@@ -1,4 +1,4 @@
-# whatsfordinner - Takes the thinking out of meal planning
+# WhatsForDinner - Takes the thinking out of meal planning
 
 ## Background and Overview
 whatsfordinner is a recipe finding tool that takes the decision-making out of choosing what to cook by finding published recipes based on inputed ingredients.
