@@ -54,9 +54,10 @@ To do:
   * Test that visualization and data are working
 
 ### Day 4
+Create the logic that will correctly filter the data from the API and connect it to my app's visualization. Create link to recipe location.
 To do:
-Create the logic that will correctly filter the data from the API and connect it to my app's visualization. 
   * Code backend logic to filter data based on given inputs
+  * Create link to recipe location
   * Test that visualization works with filtered code
 
 ### Weekend 
