@@ -10,7 +10,6 @@ In whatsfordinner, users will be able to:
   * Input ingredients into a form
   * Press submit button and have app find recipes matching input ingredients
   * Click on resulting recipes and be redirected to locations those recipes exist
-  * Click on listed ingredients not originally inputed to add them to their collection and thereby update overall results
   
 In addition, this project will include:
   * A modal explaining the functionality of the app
@@ -21,3 +20,31 @@ The app will consist of a single screen consisting of the main area that will sh
 
 ![wire frame](https://github.com/parfittchris/WhatsForDinner/blob/master/Images/Homepage.png)
 
+## Architecture and Technologies
+ This app will be completed using the following technologies:
+  * Vanilla Javascript for the overall structure and logic
+  * Edamam API for matching user-inputed ingredients with recipes 
+  * Data Driven Documents (D3) for manipulating the DOM based on the data
+  * Weback for bundling and issuing scripts
+  
+  This app will make use of only one script to update the DOM based on the change in data
+  
+## Implementation Timeline
+### Day 1
+Create webpack.config.js and package.json files. Create entry file and complete basic rendering of app interface and 'About' modal. Do not start data visualization component.
+
+### Day 2
+Run through tutorials on creating dendogram visualizatons and practice creating my own, learning how to have it use data that will be incorporated from the API. Set up the visualization in the app minus getting the actual data from the API.
+
+### Day 3
+Learn about the Edamam API, how to import the data into my app, and how to manipulate the data to use what I want. Add the necessary code into the app to allow it retrieve data from the API.
+
+### Day 4
+Create the logic that will correctly filter the data from the API and connect it to my app's visualization. 
+
+### Weekend 
+Connect the user inputs to the backend logic. Finish styling the front end and make it professional. Test for bugs and deploy.
+
+### Bonus Features
+New nodes appear after rendering indicating popular ingredients often combined with user-inputs
+Users can click new nodes to add them to their list and update result tree
