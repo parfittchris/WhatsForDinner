@@ -6,7 +6,7 @@ WhatsForDinner is a recipe finding tool that takes the decision-making out of ch
 Users can enter ingredients they have on hand into the web interface, press the 'submit' button and the app will identify recipes that contain all the ingredients the user added. The results are shown in a dendrogram showing the ingredients listed, ingredients still needed to complete the recipe, and the final recipe in different tiers. Additionally, users are able to click on the final recipes and be sent to the location where that recipe exists with instructions. Results will be limited to a maximum of 20, arranged by most popular by rating from the API.
 
 ## Functionality & MVP 
-In whatsfordinner, users will be able to:
+In WhatsForDinner, users will be able to:
   * Input ingredients into a form
   * Press submit button and have app find recipes matching input ingredients
   * Click on resulting recipes and be redirected to locations those recipes exist
@@ -32,19 +32,41 @@ The app will consist of a single screen consisting of the main area that will sh
 ## Implementation Timeline
 ### Day 1
 Create webpack.config.js and package.json files. Create entry file and complete basic rendering of app interface and 'About' modal. Do not start data visualization component.
+To Do:
+  * Create Webpack
+  * Create Json
+  * Create Entry file
+  * Complete Basic app interface
+  * Create About modal
 
 ### Day 2
 Run through tutorials on creating dendogram visualizatons and practice creating my own, learning how to have it use data that will be incorporated from the API. Set up the visualization in the app minus getting the actual data from the API.
-
+To do:
+  * Complete dendogram tutorials
+  * Set up visualization framework minus data aspect in app
+  * Test visualization with temporary data to ensure it works
+  
 ### Day 3
 Learn about the Edamam API, how to import the data into my app, and how to manipulate the data to use what I want. Add the necessary code into the app to allow it retrieve data from the API.
+To do:
+  * Learn Edamam API and how to import data into app
+  * Write code to retrieve data from API and connect it with dendogram visualization
+  * Test that visualization and data are working
 
 ### Day 4
+To do:
 Create the logic that will correctly filter the data from the API and connect it to my app's visualization. 
+  * Code backend logic to filter data based on given inputs
+  * Test that visualization works with filtered code
 
 ### Weekend 
+To do:
 Connect the user inputs to the backend logic. Finish styling the front end and make it professional. Test for bugs and deploy.
-
+  * Connect user inputs to backend
+  * Style frontend
+  * Debug whole app
+  * Publish
+  
 ### Bonus Features
 New nodes appear after rendering indicating popular ingredients often combined with user-inputs
 Users can click new nodes to add them to their list and update result tree
