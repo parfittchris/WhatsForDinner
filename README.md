@@ -3,7 +3,7 @@
 ## Background and Overview
 WhatsForDinner is a recipe finding tool that takes the decision-making out of choosing what to cook by finding published recipes based on inputed ingredients.
 
-Users can enter ingredients they have on hand into the web interface, press the 'submit' button and the app will identify recipes that contain all the ingredients the user added. The results are shown in a dendrogram showing the ingredients listed, ingredients still needed to complete the recipe, and the final recipe in different tiers. Additionally, users are able to click on the final recipes and be sent to the location where that recipe exists with instructions. Results will be limited to a maximum of 20, arranged by most popular by rating from the API.
+Users can enter ingredients they have on hand into the web interface, press the 'submit' button and the app will identify recipes that contain all the ingredients the user added. The results are shown in a dendrogram showing the ingredients listed and then the final recipe in different tiers. Additionally, users are able to click on the final recipes and be sent to the location where that recipe exists with instructions. Results will be limited to a maximum of 20, arranged by most popular by rating from the API.
 
 ## Functionality & MVP 
 In WhatsForDinner, users will be able to:
