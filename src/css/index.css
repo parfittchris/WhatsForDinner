@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    z-index: 10000;
+}
+
+.data-visualization {
+    height: 100vh;
+    width: 75vw;
+    background-color: rgb(185, 223, 238);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#visual {
+    height: 90%;
+    width: 90%;
+    background-color: white;
+}
+
+
+/* Sidebar */
+
+.app-sidebar {
+    height: 100vh;
+    width: 25vw;
+    background-color: rgb(240, 176, 176);
+}
+
+#about-modal {
+    display: none;
+    position: absolute;
+    left: 50vw;
+    right: 50vw;
+    width: 20vw;
+    height: 20vh;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.app-nav {
+    height: 10vh;
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.input-form {
+    display: flex;
+    flex-direction: column;
+}

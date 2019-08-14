@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <link rel="stylesheet" type="text/css" href="./src/css/index.css"/>
+    </head>
+</head>
+
+<body>
+    <section class="data-visualization">
+        <div id="visual"></div>
+
+    </section>
+    <section class="app-sidebar">
+        <nav class="app-nav">
+            <a href="https://www.linkedin.com/in/christopherparfitt/">LinkedIn</a>
+            <a href="https://github.com/parfittchris">Github</a>
+            <button id="about-btn">About</button>
+        </nav>
+        <modal id="about-modal">
+            <div class="modal-content">
+                <p>This is the about modal</p>
+                <button id="btn-close">Close</button>
+            </div>
+        </modal>
+        <h2 class="input-header">Ingredients</h2>
+        <div class="input-form-container">
+            <form class="input-form">
+                <label>Ingredient 1
+                    <input type="text" value="">
+                </label>
+                <label>Ingredient 2
+                    <input type="text" value="">
+                </label>
+                <label>Ingredient 3
+                    <input type="text" value="">
+                </label>
+                <label>Ingredient 4
+                    <input type="text" value="">
+                </label>
+                <label>Ingredient 5
+                    <input type="text" value="">
+                </label>
+                <input type="submit" value="Find Recipes">
+            </form>
+        </div>
+    </section>
+    <script>
+
+        //Render modal
+        const aboutBtn = document.getElementById('about-btn');
+        const aboutModal = document.getElementById('about-modal');
+        const aboutClose = document.getElementById('btn-close');
+
+        window.onclick = function(e) {
+            if (e.target == aboutModal) {
+                aboutModal.style.display = 'none';
+                }
+            } 
+            
+        aboutBtn.onclick = function() {
+                aboutModal.style.display = 'block';
+            }
+
+        aboutClose.onclick = function () {
+                aboutModal.style.display = 'none';
+            }
+    
+        // Data visualization component         
+
+            const width = 950;
+            const height = 650;
+
+            let data = {
+                    "name": "A1",
+                    "children": [
+                        {
+                            "name": "B1",
+                            "children": [
+                                {
+                                    "name": "C1",
+                                    "value": 100
+                                },
+                                {
+                                    "name": "C2",
+                                    "value": 300
+                                },
+                                {
+                                    "name": "C3",
+                                    "value": 200
+                                }
+                            ]
+                        },
+                        {
+                            "name": "B2",
+                            "value": 200
+                        }
+                    ]
+                }  
+
+            
+
+            const visual = d3.select('#visual').append('svg')
+                .attr('width', width)
+                .attr('height', height)
+                .append('g')
+
+            
+            const clusterLayout = d3.cluster()
+                .size([400, 400]);
+
+            const root = d3.hierarchy(data)
+            clusterLayout(root);
+            console.log(root.descendants())
+            visual.selectAll('g')
+                .data(root.descendants())
+                .enter()
+                .append('g')
+                .attr('transform', function(d) {
+                    return 'translate(' + d.y + ',' + d.x + ')'
+                })
+                .append('circle')
+                .attr('r', 5)
+                .style('fill', 'white')
+                .style('stroke', 'blue')
+                .style('stroke-width', 1)
+
+            visual.selectAll('path')
+                .data(root.descendants().slice(1))
+                .enter()
+                .append('path')
+                .attr("d", function (d) {
+                    return "M" + d.y + "," + d.x
+                        + "C" + (d.parent.y + 50) + "," + d.x
+                        + " " + (d.parent.y + 150) + "," + d.parent.x
+                        + " " + d.parent.y + "," + d.parent.x;
+                })
+                .style('fill', 'none')
+                .attr('stroke', 'blue')
+                .attr('stroke-width', 3)
+                .attr('stroke-opacity', .5)
+
+
+
+    </script>
+</body>
+
+</html>
+
