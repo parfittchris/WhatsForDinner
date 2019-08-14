@@ -1,49 +1,47 @@
 {
+    "name": "Primary",
     "children": [
         {
-            "name": "boss1",
+            "name": "Secondary-1",
             "children": [
                 {
-                    "name": "mister_a",
-                    "colname": "level3"
+                    "name" : "recipe-1"
                 },
                 {
-                    "name": "mister_b",
-                    "colname": "level3"
+                    "name" : "recipe-2"
                 },
                 {
-                    "name": "mister_c",
-                    "colname": "level3"
+                    "name" : "recipe-3"
                 },
                 {
-                    "name": "mister_d",
-                    "colname": "level3"
+                    "name" : "recipe-4"
+                },
+                {
+                    "name" : "recipe-5"
                 }
-            ],
-            "colname": "level2"
+            ]
         },
         {
-            "name": "boss2",
+            "name": "Secondary-2",
             "children": [
                 {
-                    "name": "mister_e",
-                    "colname": "level3"
+                    "name": "recipe-6"
                 },
                 {
-                    "name": "mister_f",
-                    "colname": "level3"
-                },
-                {
-                    "name": "mister_g",
-                    "colname": "level3"
-                },
-                {
-                    "name": "mister_h",
-                    "colname": "level3"
+                    "name": "recipe-7"
                 }
-            ],
-            "colname": "level2"
+            ]
+        },
+        {
+            "name": "Secondary-3",
+            "children": [
+                {
+                    "name": "recipe-8"
+                },
+                {
+                    "name": "recipe-9"
+                }
+            ]
         }
-    ],
-    "name": "CEO"
+    ]
 }
