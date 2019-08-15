@@ -1,12 +1,5 @@
 move = () => {
         const t = d3.transition().duration(5000).ease(d3.easeLinear);
-
-        const boundaries = {
-            top: 400,
-            bottom: 500,
-            left: 600,
-            right: 700
-        }
         
         svg.transition(t)
             .style("transform", "translate(600px, 370px) rotate(10deg)")
@@ -19,3 +12,16 @@ move = () => {
             .on('end', move)
 
 }
+
+draw = () => {
+    const t = d3.transition().duration(1000).ease(d3.easeLinear);
+
+    let totalLength = link.node().getTotalLength();
+
+    link.attr("stroke-dasharray", totalLength + " " + totalLength)
+        .attr("stroke-dashoffset", totalLength)
+        .transition(t)
+        .attr('stroke-dashoffset', 0)
+        .on('end', repeat)
+}
+
