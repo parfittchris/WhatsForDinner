@@ -1,47 +1,33 @@
-{
-    "name": "Primary",
-    "children": [
-        {
-            "name": "Secondary-1",
-            "children": [
-                {
-                    "name" : "recipe-1"
-                },
-                {
-                    "name" : "recipe-2"
-                },
-                {
-                    "name" : "recipe-3"
-                },
-                {
-                    "name" : "recipe-4"
-                },
-                {
-                    "name" : "recipe-5"
-                }
-            ]
-        },
-        {
-            "name": "Secondary-2",
-            "children": [
-                {
-                    "name": "recipe-6"
-                },
-                {
-                    "name": "recipe-7"
-                }
-            ]
-        },
-        {
-            "name": "Secondary-3",
-            "children": [
-                {
-                    "name": "recipe-8"
-                },
-                {
-                    "name": "recipe-9"
-                }
-            ]
-        }
-    ]
-}
+
+[{ "id": "Chicken", "parent": "" },
+{ "id": "Cheese", "parent": "Chicken" },
+{ "id": "Peppers", "parent": "Chicken" },
+{ "id": "Salsa", "parent": "Chicken" },
+{ "id": "Broccoli", "parent": "Chicken" },
+{ "id": "Lobster", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" },
+{ "id": "Chocolate", "parent": "Chicken" }
+]

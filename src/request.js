@@ -1,16 +1,29 @@
-
-const getRecipes = () => {
+ 
+ getRecipes = () => {
     let data = {
         key: '3e5697e7c4290af4d54d48ac0884de2f',
-        food1: document.getElementById('input').value,
+        food: document.getElementById('input').value,
     }
 
-    const url = `https://www.food2fork.com/api/search?key=${data.key}&q=${data.food1},${data.food2},${data.food3},${data.food4},${data.food5}`
+    const url = `https://www.food2fork.com/api/search?key=${data.key}&q=${data.food}`
     return fetch(url)
         .then(function (response) {
             return response.json();
         })
         .then(function (myJson) {
-            console.log(JSON.stringify(myJson));
+            const result = JSON.stringify(myJson);
+            const json = JSON.parse ( result )
+            let resultArray = [{parent:"", id:`${data.food}`, image:"", url:""}];
+            json.recipes.forEach(recipe => {
+                const modRecipe = {
+                    parent: data.food,
+                    id: recipe.title,
+                    image: recipe.image_url,
+                    url: recipe.source_url
+                }
+                resultArray.push(modRecipe)
+            });
+
+            render(resultArray);
         })
 }
