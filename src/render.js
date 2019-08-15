@@ -20,6 +20,14 @@
     }
 
 
+    //Render Ingredient List
+    d3.select('#ingredients-list')
+       .selectAll('li')
+       .data(searchTerms)
+       .enter()
+       .append('li')
+       .text(function(d) {return d;});
+
     //Render Tree
     d3.select('svg').remove()
     const svg = d3.select('#visual').append('svg')
@@ -31,7 +39,7 @@
         .parentId(function (d) { return d.parent; })
         (data);
 
-    const clusterLayout = d3.cluster().size([300, 250])
+    const clusterLayout = d3.cluster().size([(Math.random() * 300) + 100, 250])
     const information = clusterLayout(dataStructure);
 
     const link = svg.append("g")
@@ -61,9 +69,13 @@
         .attr("r", 5);
 
     node.append('text')
+        .classed('recipe-link', true)
         .attr('dy', '0.31em')
         .attr('x', 6)
-        // .attr("text-anchor", function (d) { return d.x < 180 ? "start" : "end"; })
-        // .attr("transform", d => d.x >= Math.PI ? "rotate(180)" : null)
         .text(d => d.data.id)
+        .on('hover', function(d) {console.log('hi')})
+        .on('click', function(d) { window.open(d.data.url);});
+
+
+   
 }

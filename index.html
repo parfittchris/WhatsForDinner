@@ -24,20 +24,26 @@
                 <button id="btn-close">Close</button>
             </div>
         </modal>
-        <h2 class="input-header">Ingredients</h2>
+        <h2 class="input-header">What's For Dinner?</h2>
         <div class="input-form-container">
             <div class="input-form">
-                <label>Ingredient 1
-                    <input id="input" name="input-1" type="text">
+                <label>Ingredient
+                    <input id="input" name="input" type="text">
                 </label>
                 <input type="submit" value="Find Recipes" onclick=getRecipes()>
+                <input type="submit" value="Reset Search" onclick=resetSearch()>                
             </div>
+        </div>
+        <div id="ingredients-list">
+            ingredients list
         </div>
     </section>
 
     <script src="./src/request.js"></script>
     <script src="./src/render.js"></script>
-
+    <script>
+        let searchTerms = [];
+    </script>
     
 </body>
 
