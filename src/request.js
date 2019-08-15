@@ -49,3 +49,8 @@ resetSearch = () => {
       
     render(searchTerms);
 }
+
+changePicture = (image) => {
+    document.getElementById('image-show').src = image;
+}
+

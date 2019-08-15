@@ -9,7 +9,9 @@
 
 <body>
     <section class="data-visualization">
-        <div id="visual"></div>
+        <!-- <div> -->
+            <div id="visual"></div>
+        <!-- </div> -->
 
     </section>
     <section class="app-sidebar">
@@ -18,20 +20,24 @@
             <a href="https://github.com/parfittchris">Github</a>
             <button id="about-btn">About</button>
         </nav>
+        <div class='image-show-container'>
+            <img id ="image-show" src="./Images/wfd-logo.png" alt="recipe-image">
+        </div>
         <modal id="about-modal">
             <div class="modal-content">
                 <p>This is the about modal</p>
                 <button id="btn-close">Close</button>
             </div>
         </modal>
-        <h2 class="input-header">What's For Dinner?</h2>
+        <h2 class="input-header">Pick an ingredient</h2>
         <div class="input-form-container">
             <div class="input-form">
                 <label>Ingredient
                     <input id="input" name="input" type="text">
                 </label>
-                <input type="submit" value="Find Recipes" onclick=getRecipes()>
-                <input type="submit" value="Reset Search" onclick=resetSearch()>                
+                <input type="submit" value="Find Recipes" onclick="getRecipes();move();">
+                <input type="submit" value="Reset Search" onclick=resetSearch()>
+                <input type="submit" value="Test animation" onclick=move()>
             </div>
         </div>
         <div id="ingredients-list">
@@ -41,6 +47,7 @@
 
     <script src="./src/request.js"></script>
     <script src="./src/render.js"></script>
+    <script src="./src/animations.js"></script>
     <script>
         let searchTerms = [];
     </script>
