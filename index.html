@@ -3,15 +3,14 @@
 
 <head>
     <script src="https://d3js.org/d3.v5.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Amiri:400i&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./src/css/index.css"/>
-    </head>
+    <link rel="stylesheet" type="text/css" href="./src/css/00-reset.css"/>    
 </head>
 
 <body>
     <section class="data-visualization">
-        <!-- <div> -->
             <div id="visual"></div>
-        <!-- </div> -->
 
     </section>
     <section class="app-sidebar">
@@ -20,8 +19,10 @@
             <a href="https://github.com/parfittchris">Github</a>
             <button id="about-btn">About</button>
         </nav>
-        <div class='image-show-container'>
-            <img id ="image-show" src="./Images/wfd-logo.png" alt="recipe-image">
+        <div class="sidebar-show-section">
+            <div class='image-show-container'>
+                <img id ="image-show" src="./Images/wfd-logo.png" alt="recipe-image">
+            </div>
         </div>
         <modal id="about-modal">
             <div class="modal-content">
@@ -29,20 +30,25 @@
                 <button id="btn-close">Close</button>
             </div>
         </modal>
-        <h2 class="input-header">Pick an ingredient</h2>
-        <div class="input-form-container">
-            <div class="input-form">
-                <label>Ingredient
-                    <input id="input" name="input" type="text">
-                </label>
-                <input type="submit" value="Find Recipes" onclick="getRecipes();move();">
-                <input type="submit" value="Reset Search" onclick=resetSearch()>
-                <input type="submit" value="Test animation" onclick=move()>
-                <input type="submit" value="Test animation2" onclick=draw()>
+        <div class='form-section'>
+            <h2 class="input-header">Choose an ingredient</h2>
+            <div class="input-form-container">
+                <div class="input-form">
+                    <label class="input-label">
+                        <input class="input-ingredient" id="input" name="input" type="text">
+                    </label>
+                    <div class='form-button-container'>
+                        <input class='form-btn' type="submit" value="Find Recipes" onclick="getRecipes();">
+                        <input class='form-btn' type="submit" value="Reset Search" onclick=resetSearch()>
+                    </div>
+                    <input type="submit" value="Test animation" onclick="move(); fadeIn(); draw();">
+                </div>
             </div>
         </div>
-        <div id="ingredients-list">
-            ingredients list
+        <div class="ingredients-list-container">
+            <div id="ingredients-list">
+                <p class='ingredients-list-title'>ingredients list</p>
+            </div>
         </div>
     </section>
 
@@ -52,7 +58,6 @@
     <script>
         let searchTerms = [];
     </script>
-    
 </body>
 
 </html>

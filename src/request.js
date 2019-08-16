@@ -1,3 +1,5 @@
+//  import render from './render'
+
  getRecipes = () => {
     const keys = {
         one: "38f4e777cf422a543c6e900cb8bbdf9e",
@@ -19,7 +21,6 @@
         });
         return results
     }
-
     return fetch(url + appendSearches())
         .then(function (response) {
             return response.json();

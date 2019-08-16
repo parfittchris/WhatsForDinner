@@ -2,6 +2,13 @@
 body {
     display: flex;
     z-index: 10000;
+    font-family: 'Chalkboard';
+    color: white;
+}
+
+@font-face {
+  font-family: 'Chalkboard';
+  src: URL('coolCrayon.ttf') format('truetype');
 }
 
 .data-visualization {
@@ -25,23 +32,28 @@ body {
 .app-sidebar {
     height: 100vh;
     width: 25vw;
-    background-color: rgb(240, 176, 176);
+    background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    background-image: url('../../Images/blackboard.jpeg');
+    background-position: center;
+    background-size: cover;
 }
 
 .image-show-container {
-    height: 25%;
-    width: 60%;
-    border: 1px solid black;
+    height: 80%;
+    width: 65%;
     background-color: white;
+    border: 2px solid white;
+    border-radius: 15%;
 }
 
 #image-show {
     height: 100%;
     width: 100%;
+    border-radius: 15%;
     background-size: auto;
     background-repeat: no-repeat;
 }
@@ -54,23 +66,98 @@ body {
     width: 20vw;
     height: 20vh;
     background-color: white;
-    border: 1px solid black;
 }
 
 .app-nav {
     height: 10vh;
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid white;
     display: flex;
     justify-content: space-around;
+    align-items: center;
+}
+
+.sidebar-show-section {
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 .input-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
+.input-label {
+    display: flex;
+    justify-content: center;
+}
+.input-header {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 200;
+}
+
+.input-ingredient {
+    width: 80%;
+    margin-top: 20px;
+    font-size: 32px;
+    font-weight: 200;
+    text-align: center;
+    border-bottom: 3px solid white;
+}
+
+.form-section {
+    width: 100%;
+    height: 25vh;
+}
+
+.form-button-container {
+    margin-top: 20x;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    width: 70%; 
+}
+
+.form-btn {
+    transition-duration: .125s;
+    padding: 10px 14px;
+    border: 3px solid white;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.form-btn:hover {
+    transition-duration: .125s;
+    transform: scale(1.25);
+    opacity: 1;
+}
+
+.ingredients-list-container {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+}
+
+#ingredients-list {
+    margin-top: 5%;
+    padding-top: 3%;
+    position: relative;
+    height: 70%;
+    width: 50%;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.ingredients-list-title {
+    text-decoration: underline;
+    font-size: 24px;
+}
 path {
     fill: none;
     stroke: blue;
@@ -91,17 +178,9 @@ path:hover {
     align-items: center;
 }
 
-#ingredients-list {
-    position: relative;
-    height: 25%;
-    width: 40%;
-    background-color: white;
-    margin-bottom: 5%;
-    text-align: center;
-}
-
 .recipe-link {
     cursor: pointer;
+    font-family: 'Amiri', 'serif';
 }
 
 .recipe-link:hover {
