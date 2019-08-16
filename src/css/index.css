@@ -21,7 +21,7 @@ body {
     top: 25vh;
     width: 40vw;
     height: 50vh;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .modal-content {
@@ -136,7 +136,7 @@ body {
 
 .input-ingredient {
     width: 80%;
-    margin-top: 20px;
+    margin-top: 8%;
     font-size: 32px;
     font-weight: 200;
     text-align: center;
@@ -149,8 +149,8 @@ body {
 }
 
 .form-button-container {
-    margin-top: 20x;
-    padding-top: 45px;
+    /* margin-top: 20px; */
+    padding-top: 10%;
     display: flex;
     justify-content: space-around;
     width: 70%; 
@@ -198,17 +198,6 @@ body {
     text-decoration: underline;
     font-size: 24px;
 }
-path {
-    fill: none;
-    stroke: rgb(250, 123, 223);
-    stroke-width: 1.5px;
-    stroke-opacity: 0.4;
-}
-
-path:hover {
-    stroke-width: 2.5px;
-    stroke-opacity: 0.8;
-}
 
 .svg-container {
     width: 100%;
@@ -217,6 +206,8 @@ path:hover {
     justify-content: center;
     align-items: center;
 }
+
+
 
 .recipe-link {
     cursor: pointer;
@@ -229,6 +220,17 @@ path:hover {
     font-weight: 900;
 }
 
+.link {
+    fill: none;
+    stroke: rgb(250, 123, 223);
+    stroke-width: 1.5px;
+    stroke-opacity: 0.4;
+}
+
 circle {
     fill: rgb(136, 136, 236);
 }
+/* 
+.draggable {
+    cursor: move;
+} */

@@ -23,7 +23,7 @@
     </modal>
     <section id='app'>
         <section class="data-visualization">
-                <div id="visual"></div>
+                <div id="visual" onload ="makeDraggable(event)"></div>
 
         </section>
         <section class="app-sidebar">
@@ -63,6 +63,29 @@
     <script src="./src/animations.js"></script>
     <script>
         let searchTerms = [];
+
+        //****************/Render modal********************
+
+            const aboutBtn = document.getElementById('about-btn');
+            const aboutModal = document.getElementById('about-modal');
+            const app = document.getElementById('app')
+            const aboutClose = document.getElementById('btn-close');
+
+            window.onclick = function (e) {
+                if (e.target == aboutModal) {
+                    aboutModal.style.display = 'none';
+                }
+            }
+
+            aboutBtn.onclick = function () {
+                aboutModal.style.display = 'flex';
+                app.style.opacity = .3;
+            }
+
+            aboutClose.onclick = function () {
+                aboutModal.style.display = 'none';
+                app.style.opacity = 1;
+            }
     </script>
 </body>
 

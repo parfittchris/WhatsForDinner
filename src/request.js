@@ -6,11 +6,12 @@
         two: '3e5697e7c4290af4d54d48ac0884de2f',
         three: 'ac54ddd63718e60c90be945d15f2c071',
         four: 'b3d41f0f8ad2655d3f9bfe411bc5f85f',
-        five: '5c9de9159f9d4de6b55eb7ab546ec352'
+        five: '5c9de9159f9d4de6b55eb7ab546ec352',
+        six: 'd136c61e00c41aeeabfc82b0711f0495'
     }
 
     let data = {
-        key: keys.five,
+        key: keys.six,
         food: document.getElementById('input').value,
     }
     

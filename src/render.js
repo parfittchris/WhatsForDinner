@@ -1,66 +1,10 @@
 render = (data) => {
-    
-    // let data = [
-    //     {id: "root", parent: ""},
-    //     {id: "bacon1", parent: "root"},
-    //     { id: "bacon2", parent: "root" },
-    //     { id: "bacon3", parent: "root" },
-    //     { id: "bacon4", parent: "root" },
-    //     { id: "bacon5", parent: "root" },
-    //     { id: "bacon6", parent: "root" },
-    //     { id: "bacon7", parent: "root" },
-    //     { id: "bacon8", parent: "root" },
-    //     { id: "bacon9", parent: "root" },
-    //     { id: "bacon10", parent: "root" },
-    //     { id: "bacon11", parent: "root" },
-    //     { id: "bacon12", parent: "root" },
-    //     { id: "bacon13", parent: "root" },
-    //     { id: "bacon14", parent: "root" },
-    //     { id: "bacon15", parent: "root" },
-    //     { id: "bacon16", parent: "root" },
-    //     { id: "bacon17", parent: "root" },
-    //     { id: "bacon18", parent: "root" },
-    //     { id: "bacon19", parent: "root" },
-    //     { id: "bacon20", parent: "root" },
-    //     { id: "bacon21", parent: "root" },
-    //     { id: "bacon22", parent: "root" },
-    //     { id: "bacon23", parent: "root" },
-    //     { id: "bacon24", parent: "root" },
-    //     { id: "bacon25", parent: "root" },
-    //     { id: "bacon26", parent: "root" },
-    //     { id: "bacon27", parent: "root" },
-    //     { id: "bacon28", parent: "root" },
-    //     { id: "bacon29", parent: "root" },
-    //     { id: "bacon30", parent: "root" },
-    // ]
 
-    //****************/Render modal********************
-    
-    document.getElementById('input').value = ""
-
-    const aboutBtn = document.getElementById('about-btn');
-    const aboutModal = document.getElementById('about-modal');
-    const app = document.getElementById('app')
-    const aboutClose = document.getElementById('btn-close');
-
-    window.onclick = function (e) {
-        if (e.target == aboutModal) {
-            aboutModal.style.display = 'none';
-        }
-    }
-
-    aboutBtn.onclick = function () {
-        aboutModal.style.display = 'flex';
-        app.style.opacity = .3;
-    }
-
-    aboutClose.onclick = function () {
-        aboutModal.style.display = 'none';
-        app.style.opacity = 1;
-    }
 
     //**************/Render Ingredient List****************
     // searchTerms = ['bacon']
+    document.getElementById('input').value = ""
+
     d3.select('#ingredients-list')
        .selectAll('li')
        .data(searchTerms)
@@ -78,11 +22,15 @@ render = (data) => {
        
 
     //****************/Render Tree*************************
+    
+    let width = window.innerWidth * .40;
+    let height = window.innerHeight * .50;
 
     d3.select('svg').remove()
     const svg = d3.select('#visual').append('svg')
         .classed('svg-container', true)
-        .append('g').attr('transform', 'translate(637.5, 440) rotate(0)')
+        // .classed('draggable', true)
+        .append('g').attr('transform', `translate(${width}, ${height}) rotate(0)`)
         
   
     const dataStructure = d3.stratify()
@@ -97,10 +45,11 @@ render = (data) => {
         .data(information.links())
         .enter().append("path")
         .attr("d", d3.linkRadial()
-            .angle(d => d.x)
-            .radius(d => d.y))
-        .style('opacity', 0);
-
+        .angle(d => d.x)
+        .radius(d => d.y))
+        .style('opacity', 0)
+        .classed('link', true)
+    
     const node = svg.append("g")
         .classed('node', true)
         .attr('stroke-width', 3)
@@ -135,16 +84,17 @@ render = (data) => {
 
         svg.transition(t)
             // .delay(1500)
-            .style("transform", "translate(600px, 370px) rotate(10deg)")
+            .style("transform", `translate(${width-50}px, ${height+10}px) rotate(10deg)`)
             .transition(t)
-            .style("transform", "translate(670px, 390px) rotate(-10deg)")
+            .style("transform", `translate(${width+30}px, ${height-40}px) rotate(-10deg)`)
             .transition(t)
-            .style("transform", "translate(690px, 400px) rotate(10deg)")
+            .style("transform", `translate(${ width+50}px, ${height+10}px) rotate(10deg`)
             .transition(t)
-            .style("transform", "translate(650px, 420px) rotate(-10deg)")
+            .style("transform", `translate(${ width+5}px, ${height+30}px) rotate(-10deg)`)
             .on('end', move)
 
     }
+
     draw = () => {
             // Animation code got from https://bl.ocks.org/basilesimon/f164aec5758d16d51d248e41af5428e4
             const t = d3.transition().duration(500).ease(d3.easeLinear);
@@ -173,8 +123,41 @@ render = (data) => {
 
     }
 
+
+    // makeDraggable = (event) => {
+    //     let ele = event.target
+
+    //     ele.addEventListener('mousedown', startDrag);
+    //     ele.addEventListener('mousemove', drag);
+    //     ele.addEventListener('mouseup', endDrag);
+    //     ele.addEventListener('mouseleave', endDrag);
+
+    //     let selectedElement = false;
+
+    //     function startDrag(event) {
+    //         if (event.target.classList.contains('draggable')) {
+    //             selectedElement = event.target;
+    //             debugger
+    //         }
+    //     }
+
+    //     function drag(event) {
+    //         if (selectedElement) {
+    //             event.preventDefault();
+    //             let x = parseFloat(selectedElement.getAttributeNS(null, 'x'));
+    //             selectedElement.setAttributeNS(null, 'x', x + 0.1);
+    //         }
+    //     }
+
+    //     function endDrag(event) {
+    //         selectedElement = false;
+    //     }
+
+    // }
+
         move(); 
         fadeIn(); 
         draw();
+        // makeDraggable();
 
 }
