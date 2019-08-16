@@ -9,49 +9,55 @@
 </head>
 
 <body>
-    <section class="data-visualization">
-            <div id="visual"></div>
-
-    </section>
-    <section class="app-sidebar">
-        <nav class="app-nav">
-            <a href="https://www.linkedin.com/in/christopherparfitt/">LinkedIn</a>
-            <a href="https://github.com/parfittchris">Github</a>
-            <button id="about-btn">About</button>
-        </nav>
-        <div class="sidebar-show-section">
-            <div class='image-show-container'>
-                <img id ="image-show" src="./Images/wfd-logo.png" alt="recipe-image">
-            </div>
+    <modal id="about-modal">
+        <div class="modal-content">
+            <h2 class='modal-title'>Welcome to What's for Dinner!</h2>
+            <p class='modal-paragraph'>We're taking the hard work out of meal planning!
+                Simply enter whatever ingredients you have
+                into the field at the right and we'll find
+                recipes available using those ingredients! Just
+                click on a link and you'll have dinner ready
+                in no time!</p>
+            <button class="form-btn" id="btn-close">Close</button>
         </div>
-        <modal id="about-modal">
-            <div class="modal-content">
-                <p>This is the about modal</p>
-                <button id="btn-close">Close</button>
-            </div>
-        </modal>
-        <div class='form-section'>
-            <h2 class="input-header">Choose an ingredient</h2>
-            <div class="input-form-container">
-                <div class="input-form">
-                    <label class="input-label">
-                        <input class="input-ingredient" id="input" name="input" type="text">
-                    </label>
-                    <div class='form-button-container'>
-                        <input class='form-btn' type="submit" value="Find Recipes" onclick="getRecipes();">
-                        <input class='form-btn' type="submit" value="Reset Search" onclick=resetSearch()>
-                    </div>
-                    <input type="submit" value="Test animation" onclick="move(); fadeIn(); draw();">
+    </modal>
+    <section id='app'>
+        <section class="data-visualization">
+                <div id="visual"></div>
+
+        </section>
+        <section class="app-sidebar">
+            <nav class="app-nav">
+                    <a class="nav-btn" href="https://www.linkedin.com/in/christopherparfitt/">LinkedIn</a>
+                    <a class="nav-btn" href="https://github.com/parfittchris">Github</a>
+                    <button class="nav-btn" id="about-btn">About</button>
+            </nav>
+            <div class="sidebar-show-section">
+                <div class='image-show-container'>
+                    <img id ="image-show" src="./Images/wfd-logo.png" alt="recipe-image">
                 </div>
             </div>
-        </div>
-        <div class="ingredients-list-container">
-            <div id="ingredients-list">
-                <p class='ingredients-list-title'>ingredients list</p>
+            <div class='form-section'>
+                <h2 class="input-header">Choose an ingredient</h2>
+                <div class="input-form-container">
+                    <div class="input-form">
+                        <label class="input-label">
+                            <input class="input-ingredient" id="input" name="input" type="text">
+                        </label>
+                        <div class='form-button-container'>
+                            <input class='form-btn' type="submit" value="Find Recipes" onclick="getRecipes();">
+                            <input class='form-btn' type="submit" value="Reset Search" onclick=resetSearch()>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="ingredients-list-container">
+                <div id="ingredients-list">
+                    <p class='ingredients-list-title'>ingredients list</p>
+                </div>
+            </div>
+        </section>
     </section>
-
     <script src="./src/request.js"></script>
     <script src="./src/render.js"></script>
     <script src="./src/animations.js"></script>

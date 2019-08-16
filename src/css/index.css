@@ -1,45 +1,83 @@
-
-body {
-    display: flex;
-    z-index: 10000;
-    font-family: 'Chalkboard';
-    color: white;
-}
-
 @font-face {
   font-family: 'Chalkboard';
   src: URL('coolCrayon.ttf') format('truetype');
 }
 
+body {
+    background-color: rgb(20, 20, 20);
+}
+#about-modal {
+    color: white;
+    font-family: 'Chalkboard';
+    border-radius: 15%;
+    background-image: url('../../Images/blackboard.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: none;
+    justify-content: center;
+    position: absolute;
+    left: 30vw;
+    top: 25vh;
+    width: 40vw;
+    height: 50vh;
+    z-index: 100;
+}
+
+.modal-content {
+    height: 90%;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.modal-title {
+    margin-top: 40px;
+    font-size: 38px;
+}
+
+.modal-paragraph {
+    margin-top: 20px;
+    font-size: 20px;
+    word-spacing: 8px;
+    letter-spacing: px;
+}
+
+#app {
+    display: flex;
+    z-index: 0;
+    font-family: 'Chalkboard';
+    color: white;
+    background-image: url('../../Images/blackboard.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-color: black;
+}
+
 .data-visualization {
     height: 100vh;
     width: 75vw;
-    background-color: rgb(185, 223, 238);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #visual {
-    height: 90%;
-    width: 90%;
-    background-color: white;
+    height: 100%;
+    width: 100%;
 }
-
 
 /* Sidebar */
 
 .app-sidebar {
     height: 100vh;
     width: 25vw;
-    background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-image: url('../../Images/blackboard.jpeg');
-    background-position: center;
-    background-size: cover;
 }
 
 .image-show-container {
@@ -58,23 +96,18 @@ body {
     background-repeat: no-repeat;
 }
 
-#about-modal {
-    display: none;
-    position: absolute;
-    left: 50vw;
-    right: 50vw;
-    width: 20vw;
-    height: 20vh;
-    background-color: white;
-}
-
 .app-nav {
+    transition-duration: .125s;
     height: 10vh;
     width: 100%;
-    border: 1px solid white;
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.nav-btn:hover {
+    transition-duration: .125s;
+    transform: scale(1.25);
 }
 
 .sidebar-show-section {
@@ -117,7 +150,7 @@ body {
 
 .form-button-container {
     margin-top: 20x;
-    padding-top: 15px;
+    padding-top: 45px;
     display: flex;
     justify-content: space-around;
     width: 70%; 
@@ -154,13 +187,19 @@ body {
     text-align: center;
 }
 
+.ingredient-item:hover {
+    cursor: pointer;
+    transition: .125s;
+    transform: scale(1.25);
+}
+
 .ingredients-list-title {
     text-decoration: underline;
     font-size: 24px;
 }
 path {
     fill: none;
-    stroke: blue;
+    stroke: rgb(250, 123, 223);
     stroke-width: 1.5px;
     stroke-opacity: 0.4;
 }
@@ -181,6 +220,7 @@ path:hover {
 .recipe-link {
     cursor: pointer;
     font-family: 'Amiri', 'serif';
+    fill: white;
 }
 
 .recipe-link:hover {
@@ -188,3 +228,6 @@ path:hover {
     font-weight: 900;
 }
 
+circle {
+    fill: rgb(136, 136, 236);
+}

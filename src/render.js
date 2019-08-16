@@ -40,6 +40,7 @@ render = (data) => {
 
     const aboutBtn = document.getElementById('about-btn');
     const aboutModal = document.getElementById('about-modal');
+    const app = document.getElementById('app')
     const aboutClose = document.getElementById('btn-close');
 
     window.onclick = function (e) {
@@ -49,20 +50,36 @@ render = (data) => {
     }
 
     aboutBtn.onclick = function () {
-        aboutModal.style.display = 'block';
+        aboutModal.style.display = 'flex';
+        app.style.opacity = .3;
     }
 
     aboutClose.onclick = function () {
         aboutModal.style.display = 'none';
+        app.style.opacity = 1;
     }
 
     //**************/Render Ingredient List****************
+    // searchTerms = ['bacon']
     d3.select('#ingredients-list')
        .selectAll('li')
        .data(searchTerms)
        .enter()
        .append('li')
-       .text(function(d) {return d;});
+       .classed('ingredient-item', true)
+       .text(function(d) {return d;})
+       .on('click', function(d) {
+            let index = searchTerms.indexOf(d);
+            searchTerms.splice(index, 1);
+            d.remove();
+            // debugger
+            if (searchTerms.length === 0) {
+                resetSearch();
+            } else {
+                getRecipes();
+            }
+       });
+       
 
     //****************/Render Tree*************************
 
@@ -89,6 +106,7 @@ render = (data) => {
         .style('opacity', 0);
 
     const node = svg.append("g")
+        .classed('node', true)
         .attr('stroke-width', 3)
         .selectAll('g')
         .data(information.descendants())
@@ -109,7 +127,7 @@ render = (data) => {
         .attr("text-anchor", d => d.x >= 3 ? "end" : "start")
         .attr("x", d => d.x >= 3 ?  -6 : 6)
         .attr("transform", d => d.x >= 3 ? "rotate(180)" : null)
-        .text(d => d.data.id)
+        .text(d => d.data.name)
         .style('opacity', 0)
         .on('mouseover', function(d) { changePicture(d.data.image);})
         .on('click', function(d) { window.open(d.data.url);});
@@ -162,5 +180,6 @@ render = (data) => {
 
         move(); 
         fadeIn(); 
-        draw()
+        draw();
+
 }

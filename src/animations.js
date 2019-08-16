@@ -27,6 +27,8 @@ move = () => {
         .style('opacity', 1)
 }
 
+
+
 fadeIn = () => {
     const t = d3.transition().duration(500).ease(d3.easeLinear);
 

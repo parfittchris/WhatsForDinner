@@ -3,11 +3,12 @@
  getRecipes = () => {
     const keys = {
         one: "38f4e777cf422a543c6e900cb8bbdf9e",
-        two: '3e5697e7c4290af4d54d48ac0884de2f'
+        two: '3e5697e7c4290af4d54d48ac0884de2f',
+        three: 'ac54ddd63718e60c90be945d15f2c071'
     }
 
     let data = {
-        key: keys.one,
+        key: keys.three,
         food: document.getElementById('input').value,
     }
     
@@ -28,12 +29,13 @@
         .then(function (myJson) {
             const result = JSON.stringify(myJson);
             const json = JSON.parse ( result )
-            let resultArray = [{parent:"", id:`root`, image:"", url:""}];
+            let resultArray = [{parent:"", id:`root`, image:"", name:"", url:""}];
             json.recipes.forEach(recipe => {
                 const modRecipe = {
                     parent: 'root',
                     id: recipe.title,
                     image: recipe.image_url,
+                    name: recipe.title,
                     url: recipe.source_url
                 }
                 resultArray.push(modRecipe)
@@ -47,7 +49,6 @@ resetSearch = () => {
     searchTerms = [];
     d3.select('#ingredients-list')
       .selectAll('li').remove();
-      
     render(searchTerms);
 }
 
