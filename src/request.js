@@ -4,11 +4,13 @@
     const keys = {
         one: "38f4e777cf422a543c6e900cb8bbdf9e",
         two: '3e5697e7c4290af4d54d48ac0884de2f',
-        three: 'ac54ddd63718e60c90be945d15f2c071'
+        three: 'ac54ddd63718e60c90be945d15f2c071',
+        four: 'b3d41f0f8ad2655d3f9bfe411bc5f85f',
+        five: '5c9de9159f9d4de6b55eb7ab546ec352'
     }
 
     let data = {
-        key: keys.three,
+        key: keys.five,
         food: document.getElementById('input').value,
     }
     
@@ -49,7 +51,9 @@ resetSearch = () => {
     searchTerms = [];
     d3.select('#ingredients-list')
       .selectAll('li').remove();
-    render(searchTerms);
+    d3.select('svg').remove();
+    
+    changePicture("./Images/wfd-logo.png")
 }
 
 changePicture = (image) => {

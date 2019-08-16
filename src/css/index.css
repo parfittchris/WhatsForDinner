@@ -175,6 +175,7 @@ body {
     height: 30vh;
     display: flex;
     justify-content: center;
+    list-style-type: none;
 }
 
 #ingredients-list {

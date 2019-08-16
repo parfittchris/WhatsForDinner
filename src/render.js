@@ -71,13 +71,9 @@ render = (data) => {
        .on('click', function(d) {
             let index = searchTerms.indexOf(d);
             searchTerms.splice(index, 1);
-            d.remove();
-            // debugger
-            if (searchTerms.length === 0) {
-                resetSearch();
-            } else {
-                getRecipes();
-            }
+            d3.select('#ingredients-list')
+              .select('li').remove();
+       getRecipes();
        });
        
 
@@ -132,10 +128,6 @@ render = (data) => {
         .on('mouseover', function(d) { changePicture(d.data.image);})
         .on('click', function(d) { window.open(d.data.url);});
 
-    // d3.select('g')
-    //     .property('id', '')
-
-
    //********************** */Animations ***********************************
    
     move = () => {
@@ -154,15 +146,18 @@ render = (data) => {
 
     }
     draw = () => {
-        // Animation code got from https://bl.ocks.org/basilesimon/f164aec5758d16d51d248e41af5428e4
-        const t = d3.transition().duration(500).ease(d3.easeLinear);
-
-        let totalLength = link.node().getTotalLength();
-        link.attr("stroke-dasharray", totalLength + " " + totalLength)
-            .attr("stroke-dashoffset", totalLength)
-            .transition(t)
-            .attr('stroke-dashoffset', 0)
-            .style('opacity', 1)
+            // Animation code got from https://bl.ocks.org/basilesimon/f164aec5758d16d51d248e41af5428e4
+            const t = d3.transition().duration(500).ease(d3.easeLinear);
+            if (link.node()) {
+            let totalLength = link.node().getTotalLength();
+                link.attr("stroke-dasharray", totalLength + " " + totalLength)
+                    .attr("stroke-dashoffset", totalLength)
+                    .transition(t)
+                    .attr('stroke-dashoffset', 0)
+                    .style('opacity', 1)
+                } else {
+                    resetSearch();
+                }
     }
 
     fadeIn = () => {
