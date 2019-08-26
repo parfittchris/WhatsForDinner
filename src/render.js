@@ -25,7 +25,14 @@ render = (data) => {
     
     let width = window.innerWidth * .40;
     let height = window.innerHeight * .50;
-
+    let colors = {
+        1: 'rgb(250, 123, 223)',
+        2: 'rgb(247, 173, 61)',
+        3: 'rgb(55, 233, 194)',
+        4: 'rgb(117, 255, 123)',
+    }
+    
+    debugger
     d3.select('svg').remove()
     const svg = d3.select('#visual').append('svg')
         .classed('svg-container', true)
@@ -48,6 +55,7 @@ render = (data) => {
         .angle(d => d.x)
         .radius(d => d.y))
         .style('opacity', 0)
+        .style('stroke', colors[(Math.floor(Math.random() * 4) + 1)])
         .classed('link', true)
     
     const node = svg.append("g")
@@ -122,7 +130,8 @@ render = (data) => {
             .style('opacity', 1)
 
     }
-
+     
+    
 
     // makeDraggable = (event) => {
     //     let ele = event.target

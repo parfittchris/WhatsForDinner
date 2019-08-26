@@ -14,7 +14,7 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    display: none;
+    display: flex;
     justify-content: center;
     position: absolute;
     left: 30vw;
@@ -195,6 +195,7 @@ body {
 }
 
 .ingredients-list-title {
+    margin-top: 25%;
     text-decoration: underline;
     font-size: 24px;
 }
@@ -222,7 +223,7 @@ body {
 
 .link {
     fill: none;
-    stroke: rgb(250, 123, 223);
+    /* stroke: rgb(117, 255, 123); */
     stroke-width: 1.5px;
     stroke-opacity: 0.4;
 }
