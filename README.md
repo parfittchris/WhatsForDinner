@@ -18,7 +18,7 @@ In addition, this project will include:
 
 The app will consist of a single screen consisting of the main area that will show the resulting dendrogram, as well as a side bar featuring a form where the users can input up to 5 ingredients. In addition, the sidebar will contain a submit button to begin the recipe search process, an about button that will render a modal with information about the app, and links to my Github and LinkedIn profiles.
 
-![wire frame](https://github.com/parfittchris/WhatsForDinner/blob/master/Images/Homepage.png)
+![wire frame](https://github.com/parfittchris/WhatsForDinner/blob/master/Images/SiteSnapshot.png)
 
 ## Architecture and Technologies
  This app will be completed using the following technologies:
