@@ -5,7 +5,7 @@ WhatsForDinner is a recipe finding tool that takes the decision-making out of ch
 
 Users can enter ingredients they have on hand into the web interface, press the 'Find Recipes' button and the app will search for recipes that contain all the ingredients the user added. The results are shown in a radial dendrogram showing the resultant recipe titles. Ingredients are listed neatly in the sidebar and are able to be removed individually to refine search results. Additionally, users are able to click on the final recipes and be sent to the actual website where that recipe exists. Results will be limited to a maximum of 30, arranged by most popular by rating from the API.
 
-## Functionality & MVP 
+## Functionality
 In WhatsForDinner, users will be able to:
   * Input ingredients into a form
   * Press submit button and have app find recipes matching input ingredients
@@ -16,13 +16,15 @@ In WhatsForDinner, users will be able to:
 In addition, this project will include:
   * A modal explaining the functionality of the app
   
-## Screen Shot
+## Features
 
+### Interface
 The app consists of a single main area that shows the radial dendrogram of recipe results, as well as a side bar featuring a form where the users can input ingredients. In addition, the sidebar will contain a submit button to begin the recipe search process, an about button that renders a modal with information about the app, and links to my Github and LinkedIn profiles.
 
 ![wire frame](https://github.com/parfittchris/WhatsForDinner/blob/master/Images/SiteSnapshot.png)
 
-## Architecture and Technologies
+### Food2Fork Recipe API Search
+    
  This app will be completed using the following technologies:
   * Vanilla Javascript for the overall structure and logic
   * Food2Fork Recipe API for matching user-inputed ingredients with recipes 
