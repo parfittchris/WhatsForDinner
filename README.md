@@ -24,12 +24,98 @@ The app consists of a single main area that shows the radial dendrogram of recip
 ![wire frame](https://github.com/parfittchris/WhatsForDinner/blob/master/Images/SiteSnapshot.png)
 
 ### Food2Fork Recipe API Search
+Search algorithm takes user ingredient input and creates and sends to API custom search query. Results are converted into JSON response and then filtered for necessary information.
+
+
+    appendSearches = () => {
+        let results = "&q=";
+        searchTerms.forEach(term => {
+            results += term + ',';
+        });
+        return results;
+    }
+    return fetch(url + appendSearches())
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (myJson) {
+            const result = JSON.stringify(myJson);
+            const json = JSON.parse ( result );
+            let resultArray = [{parent:"", id:`root`, image:"", name:"", url:""}];
+            json.recipes.forEach(recipe => {
+                const modRecipe = {
+                    parent: 'root',
+                    id: recipe.title,
+                    image: recipe.image_url,
+                    name: recipe.title,
+                    url: recipe.source_url
+                }
+                resultArray.push(modRecipe);
+            });
+
+            render(resultArray);
+        })
+ 
+### SVG Data Visualization
+Search results are converted into radial dendrogram with each node being a single return object. Nodes have access to   title, recipe url, and image url.
+ 
+    const dataStructure = d3.stratify()
+        .id(function (d) { return d.id; })
+        .parentId(function (d) { return d.parent; })
+        (data);
+    const clusterLayout = d3.cluster().size([6.25, 250])
+    const information = clusterLayout(dataStructure);
+
+    const link = svg.append("g")
+        .selectAll("path")
+        .data(information.links())
+        .enter().append("path")
+        .attr("d", d3.linkRadial()
+        .angle(d => d.x)
+        .radius(d => d.y))
+        .style('opacity', 0)
+        .style('stroke', colors[(Math.floor(Math.random() * 4) + 1)])
+        .classed('link', true)
     
- This app will be completed using the following technologies:
-  * Vanilla Javascript for the overall structure and logic
-  * Food2Fork Recipe API for matching user-inputed ingredients with recipes 
-  * Data Driven Documents (D3) and Scalable Vector Graphics (SVG) for manipulating the DOM based on the data
-  * Weback for bundling and issuing scripts
+    const node = svg.append("g")
+        .classed('node', true)
+        .attr('stroke-width', 3)
+        .selectAll('g')
+        .data(information.descendants())
+        .enter().append('g')
+        .attr("transform", d => `
+            rotate(${d.x * 180 / Math.PI - 90})
+            translate(${d.y}, 0)`)
+        .style('opacity', 0)
+        
+### Animation
+Data visualization features fade-in and path draw animation on generation of visualization. Once renderd, the visualation slowly moves and rotates for pleasing user experience. 
+
+     move = () => {
+             const t = d3.transition().duration(5000).ease(d3.easeLinear);
+
+             svg.transition(t)
+                 // .delay(1500)
+                 .style("transform", "translate(600px, 370px) rotate(10deg)")
+                 .transition(t)
+                 .style("transform", "translate(670px, 390px) rotate(-10deg)")
+                 .transition(t)
+                 .style("transform", "translate(690px, 400px) rotate(10deg)")
+                 .transition(t)
+                 .style("transform", "translate(650px, 420px) rotate(-10deg)")
+                 .on('end', move)
+
+     }
+      draw = () => {
+         const t = d3.transition().duration(500).ease(d3.easeLinear);
+
+         let totalLength = link.node().getTotalLength();
+         link.attr("stroke-dasharray", totalLength + " " + totalLength)
+             .attr("stroke-dashoffset", totalLength)
+             .transition(t)
+             .attr('stroke-dashoffset', 0)
+             .style('opacity', 1)
+     }
   
 ## Implementation Timeline
 ### Day 1
