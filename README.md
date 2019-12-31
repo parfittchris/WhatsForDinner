@@ -1,5 +1,8 @@
 # WhatsForDinner - Takes the thinking out of meal planning
 
+## Update 12/31/2019
+The Food2Fork api originally used was shut down at the end of the 2019. I therefore switched and updated this app to use the Edamam API. It is functionally the same as the original released version.
+
 ## Background and Overview
 WhatsForDinner is a recipe finding tool that takes the decision-making out of choosing what to cook by finding published recipes based on inputed ingredients.
 
@@ -23,7 +26,7 @@ The app consists of a single main area that shows the radial dendrogram of recip
 
 ![wire frame](https://github.com/parfittchris/WhatsForDinner/blob/master/Images/SiteSnapshot.png)
 
-### Food2Fork Recipe API Search
+### Edamam API Recipe Search
 Search algorithm takes user ingredient input and creates and sends to API custom search query. Results are converted into JSON response and then filtered for necessary information.
 
 
