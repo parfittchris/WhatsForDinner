@@ -1,49 +1,48 @@
 //  import render from './render'
-
- getRecipes = () => {
-    const keys = {
-        one: "38f4e777cf422a543c6e900cb8bbdf9e",
-        two: '3e5697e7c4290af4d54d48ac0884de2f',
-        three: 'ac54ddd63718e60c90be945d15f2c071',
-        four: 'b3d41f0f8ad2655d3f9bfe411bc5f85f',
-        five: '5c9de9159f9d4de6b55eb7ab546ec352',
-        six: 'd136c61e00c41aeeabfc82b0711f0495'
-    }
-
+getRecipes = () => {
+    const appId = 'da498f52'
+    const appKey = 'dc304052f9073320d92a40ff47e5504b'
+    
     let data = {
-        key: keys.six,
+        key: appKey,
+        id: appId,
         food: document.getElementById('input').value,
     }
     
-    const url = `https://www.food2fork.com/api/search?key=${data.key}`
+    const url1 = `https://api.edamam.com/search?to=20&`
+    const url2 = `&app_id=${data.id}&app_key=${data.key}`
+
     searchTerms.push(data.food)
 
     appendSearches = () => {
-        let results = "&q=";
+        let results = "q=";
         searchTerms.forEach(term => {
             results += term + ','
         });
         return results
     }
-    return fetch(url + appendSearches())
+
+
+    return fetch(url1 + appendSearches() + url2)
         .then(function (response) {
             return response.json();
         })
         .then(function (myJson) {
             const result = JSON.stringify(myJson);
             const json = JSON.parse ( result )
+
             let resultArray = [{parent:"", id:`root`, image:"", name:"", url:""}];
-            json.recipes.forEach(recipe => {
+            json.hits.forEach(recipe => {
+
                 const modRecipe = {
                     parent: 'root',
-                    id: recipe.title,
-                    image: recipe.image_url,
-                    name: recipe.title,
-                    url: recipe.source_url
+                    id: recipe.recipe.label,
+                    image: recipe.recipe.image,
+                    name: recipe.recipe.label,
+                    url: recipe.recipe.url
                 }
                 resultArray.push(modRecipe)
             });
-
             render(resultArray);
         })
 }

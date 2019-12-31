@@ -32,7 +32,6 @@ render = (data) => {
         4: 'rgb(117, 255, 123)',
     }
     
-    debugger
     d3.select('svg').remove()
     const svg = d3.select('#visual').append('svg')
         .classed('svg-container', true)
