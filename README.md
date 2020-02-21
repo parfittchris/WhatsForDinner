@@ -1,5 +1,8 @@
 # WhatsForDinner - Takes the thinking out of meal planning
 
+## Note on API Calls
+Since I'm using the free version of the the Edamam API, I am only allowed 5 calls per minute to their server. Therefore take notice when using the app that entering commands in too rapidly will have the app stall as the api limit has been reached. Wait a few more seconds and the request counter will reset.
+
 ## Update 12/31/2019
 The Food2Fork api originally used was shut down at the end of the 2019. I therefore switched and updated this app to use the Edamam API. It is functionally the same as the original released version.
 
